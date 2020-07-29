@@ -41,7 +41,7 @@ create table weapon_special_rules (
 	weapon_id INTEGER not null,
 	special_rule_id INTEGER not null
 )
-ALTER TABLE weapon_special_rules ADD CONSTRAINT FK_weapon_special_rules_weaponss FOREIGN KEY (weapon_id) REFERENCES weapons(id) ON DELETE CASCADE;
+ALTER TABLE weapon_special_rules ADD CONSTRAINT FK_weapon_special_rules_weapons FOREIGN KEY (weapon_id) REFERENCES weapons(id) ON DELETE CASCADE;
 ALTER TABLE weapon_special_rules ADD CONSTRAINT FK_weapon_special_rules_special_rule FOREIGN KEY (special_rule_id) REFERENCES special_rules(id) ON DELETE CASCADE;
 
 --+++++++++++++++++++++++++++++++++++++
@@ -55,17 +55,30 @@ create table psychic_schools (
 
 create table psychic_powers(
 	id SERIAL not null primary key,
+	psychic_school_id INTEGER not null,
 	psychic_name VARCHAR(128) unique NOT NULL,
 	psychic_text VARCHAR(4096) unique NOT NULL,
 	power_level INTEGER not null
 
 );
-ALTER TABLE weapon_special_rules ADD CONSTRAINT FK_weapon_special_rules_weaponss FOREIGN KEY (weapon_id) REFERENCES weapons(id) ON DELETE CASCADE;
+ALTER TABLE psychic_powers ADD CONSTRAINT FK_psychic_powers_psychic_schools FOREIGN KEY (psychic_school_id) REFERENCES psychic_schools(id) ON DELETE CASCADE;
+--+++++++++++++++++++++++++++++++++++++
+
+create table psychic_school_warbands(
+	id SERIAL not null primary key,
+	psychic_school_id INTEGER not null,
+	warband_id INTEGER not null
+
+);
+ALTER TABLE psychic_school_warbands ADD CONSTRAINT FK_psychic_school_id FOREIGN KEY (psychic_school_id) REFERENCES psychic_schools(id) ON DELETE CASCADE;
+ALTER TABLE psychic_school_warbands ADD CONSTRAINT FK_psychic_school_warband_id FOREIGN KEY (warband_id) REFERENCES warbands(id);
 --+++++++++++++++++++++++++++++++++++++
 
 create table skills (
 	id SERIAL not null primary key,
-
+	level INTEGER not null,
+	name VARCHAR(32) not null,
+	skill_text VARCHAR(4096) not null
 );
 --+++++++++++++++++++++++++++++++++++++
 
