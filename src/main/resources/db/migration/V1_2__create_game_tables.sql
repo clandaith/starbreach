@@ -8,21 +8,28 @@ create table warbands (
 );
 --+++++++++++++++++++++++++++++++++++++
 
+create table psychic_schools (
+	id SERIAL not null primary key,
+	psychic_name VARCHAR(128) unique NOT NULL,
+	psychic_text VARCHAR(4096) NOT NULL
+);
+--+++++++++++++++++++++++++++++++++++++
+
 create table warband_special_rules (
 	id SERIAL not null primary key,
 	warband_id INTEGER not null,
 	rule_name VARCHAR(128) unique NOT NULL,
-	rule_text VARCHAR(4096) unique NOT NULL
+	rule_text VARCHAR(4096) NOT NULL
 );
-ALTER TABLE warband_special_rules ADD CONSTRAINT FK_warband_special_rules FOREIGN KEY (warband_id) REFERENCES warbands(id) ON DELETE CASCADE;
+ALTER TABLE warband_special_rules ADD CONSTRAINT FK_warband_special_rules_warbands FOREIGN KEY (warband_id) REFERENCES warbands(id) ON DELETE CASCADE;
 
 --+++++++++++++++++++++++++++++++++++++
 
 create table special_rules (
 	id SERIAL not null primary key,
 	rule_name VARCHAR(128) unique NOT NULL,
-	rule_text VARCHAR(4096) unique NOT NULL
-)
+	rule_text VARCHAR(4096) NOT NULL
+);
 --+++++++++++++++++++++++++++++++++++++
 
 create table weapons (
@@ -40,24 +47,17 @@ create table weapon_special_rules (
 	id SERIAL not null primary key,
 	weapon_id INTEGER not null,
 	special_rule_id INTEGER not null
-)
+);
 ALTER TABLE weapon_special_rules ADD CONSTRAINT FK_weapon_special_rules_weapons FOREIGN KEY (weapon_id) REFERENCES weapons(id) ON DELETE CASCADE;
 ALTER TABLE weapon_special_rules ADD CONSTRAINT FK_weapon_special_rules_special_rule FOREIGN KEY (special_rule_id) REFERENCES special_rules(id) ON DELETE CASCADE;
 
---+++++++++++++++++++++++++++++++++++++
-
-create table psychic_schools (
-	id SERIAL not null primary key,
-	psychic_name VARCHAR(128) unique NOT NULL,
-	psychic_text VARCHAR(4096) unique NOT NULL,
-);
 --+++++++++++++++++++++++++++++++++++++
 
 create table psychic_powers(
 	id SERIAL not null primary key,
 	psychic_school_id INTEGER not null,
 	psychic_name VARCHAR(128) unique NOT NULL,
-	psychic_text VARCHAR(4096) unique NOT NULL,
+	psychic_text VARCHAR(4096) NOT NULL,
 	power_level INTEGER not null
 
 );
