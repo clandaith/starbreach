@@ -1,0 +1,21 @@
+
+insert into warbands (name, faction_text) values ('Legion of Mankind', '');
+insert into warbands (name, faction_text) values ('Terror Legion', '');
+insert into warbands (name, faction_text) values ('The Ancient Machine', '');
+insert into warbands (name, faction_text) values ('Coven Empire', '');
+insert into warbands (name, faction_text) values ('Terrors of Abaddon', '');
+insert into warbands (name, faction_text) values ('L’Orani Empire', '');
+insert into warbands (name, faction_text) values ('The Hive', '');
+insert into warbands (name, faction_text) values ('Corrupted L’Orani', '');
+insert into warbands (name, faction_text) values ('U’rak Warlords', '');
+insert into warbands (name, faction_text) values ('Hunters', '');
+insert into warbands (name, faction_text) values ('Nomadic Raiders', '');
+insert into warbands (name, faction_text) values ('The Path', '');
+insert into warbands (name, faction_text) values ('The Dark Path', '');
+insert into warbands (name, faction_text) values ('The Resistance', '');
+insert into warbands (name, faction_text) values ('Continuum Syndicate', '');
+insert into warbands (name, faction_text) values ('The Inquisition', '');
+insert into warbands (name, faction_text) values ('Intergalactic Marshals', '');
+insert into warbands (name, faction_text) values ('Terror Cult', '');
+insert into warbands (name, faction_text) values ('Hive Cult', '');
+insert into warbands (name, faction_text) values ('Machine Cult', '');
