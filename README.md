@@ -1,4 +1,4 @@
-# Star Breach
+# Star Breach Warband Creator
 
 This is a simple warband creation app for Star Breach by Elijah Kellogg.
 
