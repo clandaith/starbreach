@@ -4,22 +4,22 @@
 create table factions (
 	id SERIAL not null primary key,
 	name VARCHAR(32) unique NOT NULL, 
-	faction_text varchar(4096)
+	text varchar(4096)
 );
 --+++++++++++++++++++++++++++++++++++++
 
 create table psychic_schools (
 	id SERIAL not null primary key,
-	psychic_name VARCHAR(128) unique NOT NULL,
-	psychic_text VARCHAR(4096) NOT NULL
+	name VARCHAR(128) unique NOT NULL,
+	text VARCHAR(4096) NOT NULL
 );
 --+++++++++++++++++++++++++++++++++++++
 
 create table faction_special_rules (
 	id SERIAL not null primary key,
 	faction_id INTEGER not null,
-	rule_name VARCHAR(128) unique NOT NULL,
-	rule_text VARCHAR(4096) NOT NULL,
+	name VARCHAR(128) unique NOT NULL,
+	text VARCHAR(4096) NOT NULL,
 	primary key (faction_id, rule_name)
 );
 ALTER TABLE faction_special_rules ADD CONSTRAINT FK_faction_special_rules_factions FOREIGN KEY (faction_id) REFERENCES factions(id) ON DELETE CASCADE;
@@ -28,8 +28,8 @@ ALTER TABLE faction_special_rules ADD CONSTRAINT FK_faction_special_rules_factio
 
 create table special_rules (
 	id SERIAL not null primary key,
-	rule_name VARCHAR(128) unique NOT NULL,
-	rule_text VARCHAR(4096) NOT NULL
+	name VARCHAR(128) unique NOT NULL,
+	text VARCHAR(4096) NOT NULL
 );
 --+++++++++++++++++++++++++++++++++++++
 
@@ -58,9 +58,9 @@ ALTER TABLE weapon_special_rules ADD CONSTRAINT FK_weapon_special_rules_special_
 create table psychic_powers(
 	id SERIAL not null primary key,
 	psychic_school_id INTEGER not null,
-	psychic_name VARCHAR(128) unique NOT NULL,
-	psychic_text VARCHAR(4096) NOT NULL,
-	power_level INTEGER not null,
+	name VARCHAR(128) unique NOT NULL,
+	level INTEGER not null,
+	text VARCHAR(4096) NOT NULL,
 	primary key (psychic_school_id, psychic_name)
 
 );
@@ -81,7 +81,7 @@ create table skills (
 	id SERIAL not null primary key,
 	name VARCHAR(32) not null,
 	level INTEGER not null,
-	skill_text VARCHAR(4096) not null,
+	text VARCHAR(4096) not null,
 	primary key (name, level)
 );
 --+++++++++++++++++++++++++++++++++++++
