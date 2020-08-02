@@ -47,11 +47,11 @@ create table weapons (
 	attack_rolls_per_target INTEGER not null,
 	damage_bonus INTEGER not null,
 	special_rules_id INTEGER,
-	melee bit not null default 0,
-	unwiedly bit not null default 0,
-	aoe bit not null default 0,
-	compact bit not null default 0,
-	mech bit not null default 0
+	melee bit default 0,
+	unwiedly bit default 0,
+	aoe bit default 0,
+	compact bit default 0,
+	mech bit default 0
 );
 --+++++++++++++++++++++++++++++++++++++
 
@@ -108,6 +108,8 @@ create table soldiers (
 	armor INTEGER not null,
 	cost INTEGER not null,
 	mech bit default 0,
+	psychic bit default 0,
+	unique bit default 0,
 	primary key (solider_type_id, faction_id, name)
 );
 ALTER TABLE soldiers ADD CONSTRAINT FK_soldiers_factions FOREIGN KEY (faction_id) REFERENCES factions(id) ON DELETE CASCADE;
