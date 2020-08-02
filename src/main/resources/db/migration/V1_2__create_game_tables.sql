@@ -1,6 +1,7 @@
 
 --+++++++++++++++++++++++++++++++++++++
 
+--3
 create table factions (
 	id SERIAL not null primary key,
 	name VARCHAR(32) unique NOT NULL, 
@@ -8,6 +9,7 @@ create table factions (
 );
 --+++++++++++++++++++++++++++++++++++++
 
+--5
 create table psychic_schools (
 	id SERIAL not null primary key,
 	name VARCHAR(128) unique NOT NULL,
@@ -15,6 +17,7 @@ create table psychic_schools (
 );
 --+++++++++++++++++++++++++++++++++++++
 
+-4
 create table faction_special_rules (
 	id SERIAL not null primary key,
 	faction_id INTEGER not null,
@@ -107,15 +110,25 @@ insert into soldier_types (name) values ('Soldier');
 create table soldiers (
 	id SERIAL not null primary key,
 	solider_type_id INTEGER not null,
+	faction_id INTEGER not null,
 	name VARCHAR(32) unique not null,
 	move INTEGER not null,
 	initiative INTEGER not null,
 	health INTEGER not null,
 	armor INTEGER not null,
 	cost INTEGER not null,
-	faction_id INTEGER not null
+	mech bit default 0,
+	primary key (solider_type_id, faction_id, name)
 );
 ALTER TABLE soldiers ADD CONSTRAINT FK_soldiers_factions FOREIGN KEY (faction_id) REFERENCES factions(id) ON DELETE CASCADE;
 ALTER TABLE soldiers ADD CONSTRAINT FK_soldiers_soldier_type FOREIGN KEY (solider_type_id) REFERENCES soldier_types(id) ON DELETE CASCADE;
 
 --+++++++++++++++++++++++++++++++++++++
+create table relics(
+	id SERIAL not null primary key,
+	faction_id INTEGER not null,
+	name VARCHAR(32) unique not null,
+	cost INTEGER not null,
+	special_effect VARCHAR(4096) NOT NULL,
+	primary key (faction_id, name)
+)
