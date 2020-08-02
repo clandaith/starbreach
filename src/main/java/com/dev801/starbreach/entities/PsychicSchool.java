@@ -1,15 +1,12 @@
 package com.dev801.starbreach.entities;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
-@Entity(name = "factions")
-public class Faction {
+@Entity(name = "psychic_schools")
+public class PsychicSchool {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,18 +14,11 @@ public class Faction {
 	private String name;
 	private String text;
 
-	// +++++++++++++++++++++++++++++
-
-	@OneToMany(mappedBy = "faction")
-	private List<Relic> relics;
-
-	// +++++++++++++++++++++++++++++
-
-	protected Faction() {
+	protected PsychicSchool() {
 
 	}
 
-	public Faction(String name, String text) {
+	public PsychicSchool(String name, String text) {
 		this.name = name;
 		this.text = text;
 	}
@@ -55,14 +45,6 @@ public class Faction {
 
 	public void setText(String text) {
 		this.text = text;
-	}
-
-	public List<Relic> getRelics() {
-		return relics;
-	}
-
-	public void setRelics(List<Relic> relics) {
-		this.relics = relics;
 	}
 
 }

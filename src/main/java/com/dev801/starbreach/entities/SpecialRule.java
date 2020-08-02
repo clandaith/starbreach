@@ -1,36 +1,32 @@
 package com.dev801.starbreach.entities;
 
-import java.util.List;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
-@Entity(name = "factions")
-public class Faction {
+@Entity(name = "special_rules")
+public class SpecialRule {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String name;
+	private Integer level;
 	private String text;
+	@Column(name = "weapon_only")
+	private Boolean weaponOnly;
 
-	// +++++++++++++++++++++++++++++
-
-	@OneToMany(mappedBy = "faction")
-	private List<Relic> relics;
-
-	// +++++++++++++++++++++++++++++
-
-	protected Faction() {
+	protected SpecialRule() {
 
 	}
 
-	public Faction(String name, String text) {
+	public SpecialRule(String name, Integer level, String text, Boolean weaponOnly) {
 		this.name = name;
+		this.level = level;
 		this.text = text;
+		this.weaponOnly = weaponOnly;
 	}
 
 	public Long getId() {
@@ -49,6 +45,14 @@ public class Faction {
 		this.name = name;
 	}
 
+	public Integer getLevel() {
+		return level;
+	}
+
+	public void setLevel(Integer level) {
+		this.level = level;
+	}
+
 	public String getText() {
 		return text;
 	}
@@ -57,12 +61,12 @@ public class Faction {
 		this.text = text;
 	}
 
-	public List<Relic> getRelics() {
-		return relics;
+	public Boolean getWeaponOnly() {
+		return weaponOnly;
 	}
 
-	public void setRelics(List<Relic> relics) {
-		this.relics = relics;
+	public void setWeaponOnly(Boolean weaponOnly) {
+		this.weaponOnly = weaponOnly;
 	}
 
 }
