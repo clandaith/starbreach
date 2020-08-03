@@ -132,4 +132,8 @@ public class Soldier {
 	public void setSoldierType(String soldierType) {
 		this.soldierType = soldierType;
 	}
+
+	public Long getFactionId() {
+		return faction.getId();
+	}
 }

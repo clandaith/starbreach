@@ -1,10 +1,13 @@
 package com.dev801.starbreach.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity(name = "special_rules")
 public class SpecialRule {
@@ -17,6 +20,9 @@ public class SpecialRule {
 	private String text;
 	@Column(name = "weapon_only")
 	private Boolean weaponOnly;
+
+	@OneToMany(mappedBy = "specialRule")
+	private List<Weapon> weapons;
 
 	public Long getId() {
 		return id;
