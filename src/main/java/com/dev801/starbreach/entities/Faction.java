@@ -28,6 +28,9 @@ public class Faction {
 	@OneToMany(mappedBy = "faction")
 	private List<FactionSpecialRule> factionSpecialRules;
 
+	@OneToMany(mappedBy = "faction")
+	private List<Soldier> soldiers;
+
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(name = "psychic_school_factions", joinColumns = @JoinColumn(name = "psychic_school_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "faction_id", referencedColumnName = "id"))
 	private List<PsychicSchool> psychicSchools;
@@ -87,5 +90,13 @@ public class Faction {
 
 	public void setPsychicSchools(List<PsychicSchool> psychicSchools) {
 		this.psychicSchools = psychicSchools;
+	}
+
+	public List<Soldier> getSoldiers() {
+		return soldiers;
+	}
+
+	public void setSoldiers(List<Soldier> soldiers) {
+		this.soldiers = soldiers;
 	}
 }

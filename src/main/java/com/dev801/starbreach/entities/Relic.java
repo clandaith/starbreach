@@ -17,14 +17,10 @@ public class Relic {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	// +++++++++++++++++++++++++++++
-
 	@ManyToOne
 	@JoinColumn(name = "faction_id")
 	@JsonIgnore
 	private Faction faction;
-
-	// +++++++++++++++++++++++++++++
 
 	private String name;
 	private Integer cost;
