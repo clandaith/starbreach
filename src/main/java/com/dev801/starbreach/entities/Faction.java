@@ -2,10 +2,15 @@ package com.dev801.starbreach.entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity(name = "factions")
@@ -17,12 +22,15 @@ public class Faction {
 	private String name;
 	private String text;
 
-	// +++++++++++++++++++++++++++++
-
 	@OneToMany(mappedBy = "faction")
 	private List<Relic> relics;
 
-	// +++++++++++++++++++++++++++++
+	@OneToMany(mappedBy = "faction")
+	private List<FactionSpecialRule> factionSpecialRules;
+
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(name = "psychic_school_factions", joinColumns = @JoinColumn(name = "psychic_school_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "faction_id", referencedColumnName = "id"))
+	private List<PsychicSchool> psychicSchools;
 
 	public Long getId() {
 		return id;
@@ -63,5 +71,21 @@ public class Faction {
 		// getRelics().stream().forEach(System.out::println);
 
 		return s;
+	}
+
+	public List<FactionSpecialRule> getFactionSpecialRules() {
+		return factionSpecialRules;
+	}
+
+	public void setFactionSpecialRules(List<FactionSpecialRule> factionSpecialRules) {
+		this.factionSpecialRules = factionSpecialRules;
+	}
+
+	public List<PsychicSchool> getPsychicSchools() {
+		return psychicSchools;
+	}
+
+	public void setPsychicSchools(List<PsychicSchool> psychicSchools) {
+		this.psychicSchools = psychicSchools;
 	}
 }

@@ -18,17 +18,6 @@ public class SpecialRule {
 	@Column(name = "weapon_only")
 	private Boolean weaponOnly;
 
-	protected SpecialRule() {
-
-	}
-
-	public SpecialRule(String name, Integer level, String text, Boolean weaponOnly) {
-		this.name = name;
-		this.level = level;
-		this.text = text;
-		this.weaponOnly = weaponOnly;
-	}
-
 	public Long getId() {
 		return id;
 	}

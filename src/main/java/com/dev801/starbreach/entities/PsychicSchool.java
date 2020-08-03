@@ -1,9 +1,19 @@
 package com.dev801.starbreach.entities;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity(name = "psychic_schools")
 public class PsychicSchool {
@@ -14,14 +24,13 @@ public class PsychicSchool {
 	private String name;
 	private String text;
 
-	protected PsychicSchool() {
+	@OneToMany(mappedBy = "psychicSchool")
+	List<PsychicPower> psychicPowers;
 
-	}
-
-	public PsychicSchool(String name, String text) {
-		this.name = name;
-		this.text = text;
-	}
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(name = "psychic_school_factions", joinColumns = @JoinColumn(name = "faction_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "psychic_school_id", referencedColumnName = "id"))
+	@JsonIgnore
+	private List<Faction> factions;
 
 	public Long getId() {
 		return id;
@@ -45,6 +54,22 @@ public class PsychicSchool {
 
 	public void setText(String text) {
 		this.text = text;
+	}
+
+	public List<PsychicPower> getPsychicPowers() {
+		return psychicPowers;
+	}
+
+	public void setPsychicPowers(List<PsychicPower> psychicPowers) {
+		this.psychicPowers = psychicPowers;
+	}
+
+	public List<Faction> getFactions() {
+		return factions;
+	}
+
+	public void setFactions(List<Faction> factions) {
+		this.factions = factions;
 	}
 
 }
