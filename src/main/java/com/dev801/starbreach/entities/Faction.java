@@ -24,15 +24,6 @@ public class Faction {
 
 	// +++++++++++++++++++++++++++++
 
-	protected Faction() {
-
-	}
-
-	public Faction(String name, String text) {
-		this.name = name;
-		this.text = text;
-	}
-
 	public Long getId() {
 		return id;
 	}
@@ -65,4 +56,12 @@ public class Faction {
 		this.relics = relics;
 	}
 
+	@Override
+	public String toString() {
+		String s = getName() + " :: " + getText();
+
+		// getRelics().stream().forEach(System.out::println);
+
+		return s;
+	}
 }

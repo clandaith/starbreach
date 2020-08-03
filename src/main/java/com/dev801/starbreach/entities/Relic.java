@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity(name = "relics")
 public class Relic {
 
@@ -19,6 +21,7 @@ public class Relic {
 
 	@ManyToOne
 	@JoinColumn(name = "faction_id")
+	@JsonIgnore
 	private Faction faction;
 
 	// +++++++++++++++++++++++++++++
@@ -68,4 +71,12 @@ public class Relic {
 		this.specialEffect = specialEffect;
 	}
 
+	public Long getFactionId() {
+		return faction.getId();
+	}
+
+	@Override
+	public String toString() {
+		return getName() + " :: " + getCost() + " :: " + getSpecialEffect();
+	}
 }
