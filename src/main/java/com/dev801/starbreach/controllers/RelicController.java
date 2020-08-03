@@ -2,6 +2,8 @@ package com.dev801.starbreach.controllers;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +16,7 @@ import com.dev801.starbreach.repositories.RelicRepository;
 @RestController
 @RequestMapping("relic")
 public class RelicController {
+	private static final Logger LOGGER = LoggerFactory.getLogger(RelicController.class);
 
 	@Autowired
 	RelicRepository relicRepository;
@@ -22,7 +25,7 @@ public class RelicController {
 	public List<Relic> getAll() {
 		var relics = relicRepository.findAll();
 
-		relics.stream().forEach(System.out::println);
+		relics.stream().forEach(r -> LOGGER.info("Relic: {}", r));
 
 		return relics;
 	}
@@ -31,8 +34,7 @@ public class RelicController {
 	public Relic getOne(@PathVariable Long id) throws Exception {
 		var relic = relicRepository.findById(id);
 
-		System.out.println(relic);
-
+		LOGGER.info("Relic: {}", relic);
 		return relic.orElseThrow(Exception::new);
 	}
 

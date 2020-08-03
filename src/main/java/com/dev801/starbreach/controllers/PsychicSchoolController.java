@@ -3,6 +3,8 @@ package com.dev801.starbreach.controllers;
 import java.util.List;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +17,7 @@ import com.dev801.starbreach.repositories.PsychicSchoolRepository;
 @RestController()
 @RequestMapping("psychic_school")
 public class PsychicSchoolController {
+	private static final Logger LOGGER = LoggerFactory.getLogger(PsychicSchoolController.class);
 
 	@Autowired
 	PsychicSchoolRepository psychicSchoolRepository;
@@ -23,7 +26,7 @@ public class PsychicSchoolController {
 	public List<PsychicSchool> getAll() {
 		List<PsychicSchool> psychicSchools = psychicSchoolRepository.findAll();
 
-		psychicSchools.stream().forEach(System.out::println);
+		psychicSchools.stream().forEach(ps -> LOGGER.info("Psychic School: {}", ps));
 
 		return psychicSchools;
 	}
@@ -32,7 +35,7 @@ public class PsychicSchoolController {
 	public PsychicSchool getOne(@PathVariable Long id) throws Exception {
 		Optional<PsychicSchool> psychicSchool = psychicSchoolRepository.findById(id);
 
-		System.out.println(psychicSchool);
+		LOGGER.info("Psychic School: {}", psychicSchool);
 
 		return psychicSchool.orElseThrow(Exception::new);
 	}
