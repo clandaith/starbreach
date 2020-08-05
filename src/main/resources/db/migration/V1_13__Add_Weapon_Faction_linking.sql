@@ -205,9 +205,9 @@ insert into weapons_factions (weapon_id, faction_id) values ((select id from wea
 insert into weapons_factions (weapon_id, faction_id) values ((select id from weapons where name = 'Power Hammer'), (select id from factions where name = 'The Inquisition'));
 insert into weapons_factions (weapon_id, faction_id) values ((select id from weapons where name = 'Power Lance'), (select id from factions where name = 'The Dark Path'));
 insert into weapons_factions (weapon_id, faction_id) values ((select id from weapons where name = 'Power Lance'), (select id from factions where name = 'The Path'));
-insert into weapons_factions (weapon_id, faction_id) values ((select id from weapons where name = 'Power Saber'), (select id from factions where name = 'The Inquisition'));
-insert into weapons_factions (weapon_id, faction_id) values ((select id from weapons where name = 'Power Saber'), (select id from factions where name = 'The Dark Path'));
-insert into weapons_factions (weapon_id, faction_id) values ((select id from weapons where name = 'Power Saber'), (select id from factions where name = 'The Path'));
+insert into weapons_factions (weapon_id, faction_id) values ((select id from weapons where name = 'Power Saber (LS)'), (select id from factions where name = 'The Inquisition'));
+insert into weapons_factions (weapon_id, faction_id) values ((select id from weapons where name = 'Power Saber (LS)'), (select id from factions where name = 'The Dark Path'));
+insert into weapons_factions (weapon_id, faction_id) values ((select id from weapons where name = 'Power Saber (LS)'), (select id from factions where name = 'The Path'));
 insert into weapons_factions (weapon_id, faction_id) values ((select id from weapons where name = 'Power Saber'), (select id from factions where name = 'Continuum Syndicate'));
 insert into weapons_factions (weapon_id, faction_id) values ((select id from weapons where name = 'Power Saber'), (select id from factions where name = 'Legion of Mankind'));
 insert into weapons_factions (weapon_id, faction_id) values ((select id from weapons where name = 'Power Whip'), (select id from factions where name = 'The Dark Path'));
@@ -217,9 +217,9 @@ insert into weapons_factions (weapon_id, faction_id) values ((select id from wea
 insert into weapons_factions (weapon_id, faction_id) values ((select id from weapons where name = 'Pulse Carbine'), (select id from factions where name = 'Machine Cult'));
 insert into weapons_factions (weapon_id, faction_id) values ((select id from weapons where name = 'Pulse Handgun'), (select id from factions where name = 'Coven Empire'));
 insert into weapons_factions (weapon_id, faction_id) values ((select id from weapons where name = 'Pulse Handgun'), (select id from factions where name = 'Machine Cult'));
---insert into weapons_factions (weapon_id, faction_id) values ((select id from weapons where name = 'Pulse Jezail'), (select id from factions where name = 'Coven Empire'));
-insert into weapons_factions (weapon_id, faction_id) values ((select id from weapons where name = 'Pulse Jezail'), (select id from factions where name = 'Machine Cult'));
 insert into weapons_factions (weapon_id, faction_id) values ((select id from weapons where name = 'Pulse Jezail'), (select id from factions where name = 'Coven Empire'));
+insert into weapons_factions (weapon_id, faction_id) values ((select id from weapons where name = 'Pulse Jezail'), (select id from factions where name = 'Machine Cult'));
+insert into weapons_factions (weapon_id, faction_id) values ((select id from weapons where name = 'Pulse Jezail (Mech)'), (select id from factions where name = 'Coven Empire'));
 insert into weapons_factions (weapon_id, faction_id) values ((select id from weapons where name = 'Pulse Rifle'), (select id from factions where name = 'Coven Empire'));
 insert into weapons_factions (weapon_id, faction_id) values ((select id from weapons where name = 'Pulse Rifle'), (select id from factions where name = 'Machine Cult'));
 insert into weapons_factions (weapon_id, faction_id) values ((select id from weapons where name = 'Razor Bot Swarm'), (select id from factions where name = 'The Ancient Machine'));
@@ -235,8 +235,8 @@ insert into weapons_factions (weapon_id, faction_id) values ((select id from wea
 insert into weapons_factions (weapon_id, faction_id) values ((select id from weapons where name = 'Rocket Launcher'), (select id from factions where name = 'Intergalactic Marshals'));
 insert into weapons_factions (weapon_id, faction_id) values ((select id from weapons where name = 'Rocket Launcher'), (select id from factions where name = 'The Path'));
 insert into weapons_factions (weapon_id, faction_id) values ((select id from weapons where name = 'Rocket Launcher'), (select id from factions where name = 'Hive Cult'));
-insert into weapons_factions (weapon_id, faction_id) values ((select id from weapons where name = 'Searing Probe (m)'), (select id from factions where name = 'Terror Cult'));
-insert into weapons_factions (weapon_id, faction_id) values ((select id from weapons where name = 'Searing Probe (m)'), (select id from factions where name = 'Terror Legion'));
+insert into weapons_factions (weapon_id, faction_id) values ((select id from weapons where name = 'Searing Probe (TC)'), (select id from factions where name = 'Terror Cult'));
+insert into weapons_factions (weapon_id, faction_id) values ((select id from weapons where name = 'Searing Probe (TL)'), (select id from factions where name = 'Terror Legion'));
 insert into weapons_factions (weapon_id, faction_id) values ((select id from weapons where name = 'Searing Razors'), (select id from factions where name = 'The Ancient Machine'));
 insert into weapons_factions (weapon_id, faction_id) values ((select id from weapons where name = 'Smoke Grenade'), (select id from factions where name = 'U’rak Warlords'));
 insert into weapons_factions (weapon_id, faction_id) values ((select id from weapons where name = 'Smoke Grenade'), (select id from factions where name = 'Nomadic Raiders'));

@@ -58,7 +58,6 @@ create table weapons (
 	cc3 boolean default false,
 	no_cover_fire_order boolean default false,
 	grenade boolean default false
-	--, CONSTRAINT weapon_unique_values UNIQUE (name, range, attack_rolls_per_target, damage_bonus)
 );
 --+++++++++++++++++++++++++++++++++++++
 
