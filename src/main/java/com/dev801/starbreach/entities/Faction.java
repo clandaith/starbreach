@@ -31,9 +31,14 @@ public class Faction {
 	@OneToMany(mappedBy = "faction")
 	private List<Soldier> soldiers;
 
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "psychic_school_factions", joinColumns = @JoinColumn(name = "psychic_school_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "faction_id", referencedColumnName = "id"))
 	private List<PsychicSchool> psychicSchools;
+
+
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "weapons_factions", joinColumns = @JoinColumn(name = "faction_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "weapon_id", referencedColumnName = "id"))
+	private List<Weapon> weapons;
 
 	public Long getId() {
 		return id;
@@ -98,5 +103,13 @@ public class Faction {
 
 	public void setSoldiers(List<Soldier> soldiers) {
 		this.soldiers = soldiers;
+	}
+
+	public List<Weapon> getWeapons() {
+		return weapons;
+	}
+
+	public void setWeapons(List<Weapon> weapons) {
+		this.weapons = weapons;
 	}
 }
