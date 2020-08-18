@@ -17,9 +17,6 @@ public class JpaConfig {
 
     @Bean
     public DataSource getDataSource() throws URISyntaxException {
-        DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
-        dataSourceBuilder.driverClassName("org.postgresql.Driver");
-
         LOGGER.debug("env: {}", System.getenv("DATABASE_URL"));
         URI uri = new URI(System.getenv("DATABASE_URL"));
 
@@ -28,12 +25,14 @@ public class JpaConfig {
         LOGGER.debug("path: {}", uri.getPath());
         LOGGER.debug("UserInfo: {}", uri.getUserInfo());
 
-        dataSourceBuilder.url("jdbc:postgresql://" + uri.getHost() + ":" + uri.getPort() + uri.getPath());
-
         String userInfo = uri.getUserInfo();
         String[] b = userInfo.split(":");
-        dataSourceBuilder.username(b[0]);
-        dataSourceBuilder.password(b[1]);
-        return dataSourceBuilder.build();
+
+        return DataSourceBuilder.create()
+                                .driverClassName("org.postgresql.Driver")
+                                .url("jdbc:postgresql://" + uri.getHost() + ":" + uri.getPort() + uri.getPath())
+                                .username(b[0])
+                                .password(b[1])
+                                .build();
     }
 }
