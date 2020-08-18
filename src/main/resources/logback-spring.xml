@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<property name="LOGS" value="./logs" />
+
+	<appender name="Console"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>
+				%d %highlight(%-5level) [%blue(%t)] %yellow(%C{1.}) %boldWhite([%file:%line]): %msg%n%throwable
+			</Pattern>
+		</layout>
+	</appender>
+
+
+	<!-- LOG everything at INFO level -->
+	<root level="info">
+		<appender-ref ref="Console" />
+	</root>
+
+	<logger name="com.dev801" level="trace" additivity="false">
+		<appender-ref ref="Console" />
+	</logger>
+
+</configuration>
