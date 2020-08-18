@@ -6,7 +6,7 @@ import com.dev801.starbreach.entities.PsychicPower;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface PsychicPowerRepository  extends CrudRepository<PsychicPower, Long> {
+public interface PsychicPowerRepository extends CrudRepository<PsychicPower, Long> {
 
 	@Override
 	List<PsychicPower> findAll();

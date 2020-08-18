@@ -27,7 +27,7 @@ public class PsychicPowerServiceImpl implements PsychicPowerService {
     }
 
     @Override
-    public PsychicPower getPsychicPower(Long id)throws Exception {
+    public PsychicPower getPsychicPower(Long id) throws Exception {
         Optional<PsychicPower> psychicPower = psychicPowerRepository.findById(id);
 
         LOGGER.info("Psychic School: {}", psychicPower);

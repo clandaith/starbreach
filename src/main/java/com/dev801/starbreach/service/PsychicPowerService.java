@@ -8,5 +8,5 @@ public interface PsychicPowerService {
 
     List<PsychicPower> getAllPsychicPowers();
 
-    PsychicPower getPsychicPower(Long id);
+    PsychicPower getPsychicPower(Long id) throws Exception;
 }
