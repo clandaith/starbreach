@@ -14,7 +14,7 @@ import com.dev801.starbreach.entities.Soldier;
 import com.dev801.starbreach.repositories.SoldierRepository;
 
 @RestController
-@RequestMapping("soldier")
+@RequestMapping("api/soldier")
 public class SoldierController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(SoldierController.class);
 

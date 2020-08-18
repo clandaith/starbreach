@@ -15,7 +15,7 @@ import com.dev801.starbreach.entities.Weapon;
 import com.dev801.starbreach.repositories.WeaponRepository;
 
 @RestController()
-@RequestMapping("weapon")
+@RequestMapping("api/weapon")
 public class WeaponController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(WeaponController.class);
 

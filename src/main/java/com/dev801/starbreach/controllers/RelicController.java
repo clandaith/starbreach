@@ -14,7 +14,7 @@ import com.dev801.starbreach.entities.Relic;
 import com.dev801.starbreach.repositories.RelicRepository;
 
 @RestController
-@RequestMapping("relic")
+@RequestMapping("api/relic")
 public class RelicController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(RelicController.class);
 

@@ -15,7 +15,7 @@ import com.dev801.starbreach.entities.PsychicSchool;
 import com.dev801.starbreach.repositories.PsychicSchoolRepository;
 
 @RestController()
-@RequestMapping("psychic_school")
+@RequestMapping("api/psychic_school")
 public class PsychicSchoolController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(PsychicSchoolController.class);
 

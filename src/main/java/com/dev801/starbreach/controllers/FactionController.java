@@ -15,7 +15,7 @@ import com.dev801.starbreach.entities.Faction;
 import com.dev801.starbreach.repositories.FactionRepository;
 
 @RestController()
-@RequestMapping("faction")
+@RequestMapping("api/faction")
 public class FactionController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(FactionController.class);
 

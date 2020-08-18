@@ -12,7 +12,7 @@ import com.dev801.starbreach.entities.PsychicPower;
 import com.dev801.starbreach.service.PsychicPowerService;
 
 @RestController()
-@RequestMapping("psychic_power")
+@RequestMapping("api/psychic_power")
 public class PsychicPowerController {
 
     @Autowired
