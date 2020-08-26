@@ -1,4 +1,4 @@
-package com.dev801.starbreach.controllers;
+package com.dev801.starbreach.controllers.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +12,7 @@ import com.dev801.starbreach.entities.PsychicPower;
 import com.dev801.starbreach.service.PsychicPowerService;
 
 @RestController()
-@RequestMapping("psychic_power")
+@RequestMapping("api/psychic_power")
 public class PsychicPowerController {
 
     @Autowired
