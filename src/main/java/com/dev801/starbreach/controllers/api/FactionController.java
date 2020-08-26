@@ -1,4 +1,4 @@
-package com.dev801.starbreach.controllers;
+package com.dev801.starbreach.controllers.api;
 
 import java.util.List;
 import java.util.Optional;
