@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <body>
+  
+    <div th:fragment="factionInfo">
+      <p th:text="${faction.name}"/>
+
+      <div th:text=${faction.text} />
+    </div>
+  
+  </body>
+  
+</html>

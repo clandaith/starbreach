@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<body>
+    <div th:fragment="factionSelector" id="factionSelector">
+        <form action="faction">
+            <select th:name="id">
+                <option>Select a Faction...</option>
+                <option th:each="faction, iStat: ${factions}" th:value="${faction.id}" th:text="${faction.name}" />
+            </select>
+            <button th:text="Build" th:action="submit"/>
+        </form>
+    </div>
+</body>
+
+</html>

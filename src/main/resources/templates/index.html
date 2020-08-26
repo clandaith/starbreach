@@ -8,18 +8,13 @@
 </head>
 
 <body>
-    <p>
-        Welcome to the totally unofficial Star Breach Warband creator!
-    </p>
+    <div th:insert="~{header :: header}"/>
 
-    <table>
-        <tr th:each="faction, iStat: ${factions}" 
-            th:style="${iStat.odd}? 'font-weight: bold;'"
-            th:alt-title="${iStat.even}? 'even' : 'odd'">
-            <td th:text="${faction.name}" />
-            <td th:text="${faction.text}" />
-        </tr>
-    </table>
+    <p th:text="|Welcome to the totally unofficial Star Breach Warband creator!|" />
+
+    <div th:insert="~{factionSelector :: factionSelector}"/>
+
+    <div th:insert="~{footer :: copy}"/>
 </body>
 
 </html>

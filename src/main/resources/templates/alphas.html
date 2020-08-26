@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <body>
+  
+    <div th:fragment="alphas">
+      <table>
+        <tr th:each="soldier : ${faction.soldiers}">
+          <td th:text="${soldier.soldierType}" />
+          <td th:text="${soldier.name}" />
+        </tr>
+      </table>
+    </div>
+  
+  </body>
+  
+</html>

@@ -1,5 +1,6 @@
 package com.dev801.starbreach.entities;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -16,7 +17,8 @@ import javax.persistence.ManyToOne;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity(name = "weapons")
-public class Weapon {
+public class Weapon implements Serializable {
+	private static final long serialVersionUID = -460575391374407958L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

@@ -1,9 +1,7 @@
 package com.dev801.starbreach.controllers.web;
 
-import java.util.List;
-
-import com.dev801.starbreach.entities.Faction;
 import com.dev801.starbreach.repositories.FactionRepository;
+import com.dev801.starbreach.service.FactionService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,23 +13,47 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HomeController {
-
 	private static final Logger LOGGER = LoggerFactory.getLogger(HomeController.class);
 
 	@Autowired
 	FactionRepository factionRepository;
 
+	@Autowired
+	FactionService factionService;
+
 	@GetMapping("/")
-	public String greeting(@RequestParam(name = "name", required = false, defaultValue = "World") String name,
-			Model model) {
-		LOGGER.info("blah");
+	public String mainEntryPoint(final Model model) {
+		LOGGER.info("main entry point");
 
-		List<Faction> factions = factionRepository.findAll();
+		var factions = factionRepository.findAll();
 
-		factions.stream().forEach(f -> LOGGER.info("Faction: {}", f));
+		if (LOGGER.isInfoEnabled())
+			factions.stream().forEach(f -> LOGGER.info("Faction:{} :: {} ", f.getId(), f.getName()));
 
 		model.addAttribute("factions", factions);
-		model.addAttribute("name", name);
 		return "index";
+	}
+
+	@GetMapping("/faction")
+	public String factionBuilder(@RequestParam(name = "id", required = true) final Long factionId, final Model model)
+			throws Exception {
+		LOGGER.info("looking up a faction");
+
+		if (LOGGER.isDebugEnabled())
+			LOGGER.debug("Faction to look for: {}", factionId);
+
+		var optFaction = factionRepository.findById(factionId);
+
+		if (!optFaction.isPresent())
+			throw new Exception();
+
+		var faction = optFaction.get();
+
+		if (LOGGER.isDebugEnabled())
+			LOGGER.debug("Faction found: {}", faction.getName());
+
+		model.addAttribute("faction", faction);
+		model.addAttribute("alphas", factionService.getAlphas(faction));
+		return "faction";
 	}
 }

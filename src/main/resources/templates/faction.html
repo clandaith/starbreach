@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Star Breach Warband Builder</title>
+    <link rel="stylesheet" href="/main.css" />
+</head>
+
+<body>
+    <div th:insert="~{header :: header}" />
+
+    <div>
+        <form action="/">
+            <button th:text="|Start Over|" th:action="submit" />
+        </form>
+    </div>
+
+    <div th:insert="~{factionInfo :: factionInfo}" />
+    <div th:insert="~{specialRules :: specialRules}" />
+    <div th:insert="~{alphas :: alphas}" />
+    <div th:insert="~{specialists :: specialists}" />
+    <div th:insert="~{soldiers :: soldiers}" />
+
+    <div th:insert="~{footer :: copy}" />
+</body>
+
+</html>
