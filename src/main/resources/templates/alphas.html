@@ -2,17 +2,31 @@
 
 <html xmlns:th="http://www.thymeleaf.org">
 
-  <body>
-  
-    <div th:fragment="alphas">
-      <table>
-        <tr th:each="alpha : ${alphas}">
-          <td th:text="${alpha.soldierType}" />
-          <td th:text="${alpha.name}" />
-        </tr>
-      </table>
-    </div>
-  
-  </body>
-  
+<body>
+
+  <div th:fragment="alphas">
+    <table class="troop_info">
+      <tr class="troop_info_tr">
+        <th class="troop_info_name_header" th:text="|Alphas|" />
+        <th class="troop_info_selector">
+          <select th:name="id">
+            <option th:each="alpha, iStat: ${alphas}" th:value="${alpha.id}" th:text="${alpha.name}" />
+          </select>
+          <button th:text="Add" th:action="none" />
+        </th>
+      </tr>
+      <tr th:each="troop, iStat: ${alphas}">
+        <td />
+        <td th:text="${troop.name}"/>
+        <td th:text="${troop.move}"/>
+        <td th:text="${troop.initiative}"/>
+        <td th:text="${troop.health}"/>
+        <td th:text="${troop.armor}"/>
+        <td th:text="${troop.cost}"/>
+      </tr>
+    </table>
+  </div>
+
+</body>
+
 </html>

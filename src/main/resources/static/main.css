@@ -7,3 +7,19 @@ td, th {
     padding: 0.5rem;
     text-align: left;
 }
+
+.troop_info_name_header {
+    border: 1px solid #999;
+}
+
+.troop_info_selector {
+    border: 1px solid #999;
+}
+
+tr.hide_border, th.hide_border {
+    border: 0px solid #999;
+}
+
+.name_input {
+    width: %;
+}
