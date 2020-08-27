@@ -54,6 +54,9 @@ public class HomeController {
 
 		model.addAttribute("faction", faction);
 		model.addAttribute("alphas", factionService.getAlphas(faction));
+		model.addAttribute("soldiers", factionService.getSoldiers(faction));
+		model.addAttribute("specialists", factionService.getSpecialists(faction));
+		
 		return "faction";
 	}
 }

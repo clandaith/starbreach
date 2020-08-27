@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import com.dev801.starbreach.entities.Faction;
 import com.dev801.starbreach.entities.Soldier;
+import com.dev801.starbreach.enums.SoldierTypes;
 import com.dev801.starbreach.service.FactionService;
 
 import org.slf4j.Logger;
@@ -18,24 +19,24 @@ public class FactionServiceImpl implements FactionService {
     @Override
     public List<Soldier> getAlphas(Faction faction) {
         LOGGER.info("Getting alphas");
-        return getSoldierType(faction, "Alpha");
+        return getSoldierType(faction, SoldierTypes.ALPHA);
     }
 
     @Override
     public List<Soldier> getSoldiers(Faction faction) {
         LOGGER.info("Getting soldiers");
-        return getSoldierType(faction, "Soldier");
+        return getSoldierType(faction, SoldierTypes.SOLDIER);
     }
 
     @Override
     public List<Soldier> getSpecialists(Faction faction) {
         LOGGER.info("Getting specialists");
-        return getSoldierType(faction, "Specialist");
+        return getSoldierType(faction, SoldierTypes.SPECIALISTS);
     }
 
-    private List<Soldier> getSoldierType(Faction faction, String type) {
-        List<Soldier> alphas = faction.getSoldiers().stream().filter(s -> s.getSoldierType().equalsIgnoreCase(type))
-                .collect(Collectors.toList());
+    private List<Soldier> getSoldierType(Faction faction, SoldierTypes type) {
+        List<Soldier> alphas = faction.getSoldiers().stream()
+                .filter(s -> s.getSoldierType().equalsIgnoreCase(type.toString())).collect(Collectors.toList());
 
         alphas.stream().forEach(s -> LOGGER.debug("Soldier name: {}", s.getName()));
         return alphas;

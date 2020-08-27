@@ -6,9 +6,9 @@
   
     <div th:fragment="alphas">
       <table>
-        <tr th:each="soldier : ${faction.soldiers}">
-          <td th:text="${soldier.soldierType}" />
-          <td th:text="${soldier.name}" />
+        <tr th:each="alpha : ${alphas}">
+          <td th:text="${alpha.soldierType}" />
+          <td th:text="${alpha.name}" />
         </tr>
       </table>
     </div>

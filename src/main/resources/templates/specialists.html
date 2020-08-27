@@ -5,6 +5,12 @@
   <body>
   
     <div th:fragment="specialists">
+      <table>
+        <tr th:each="specialist : ${specialists}">
+          <td th:text="${specialist.soldierType}" />
+          <td th:text="${specialist.name}" />
+        </tr>
+      </table>
     </div>
   
   </body>
