@@ -5,6 +5,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Star Breach Warband Builder</title>
     <link rel="stylesheet" href="/main.css" />
+    <script src="/jquery-3.5.1.js" ></script>
+    <script src="/starbreach.js" ></script>
 </head>
 
 <body>
@@ -16,10 +18,12 @@
         </form>
     </div>
 
+    <!--
     <div th:insert="~{factionInfo :: factionInfo}" />
     <div th:insert="~{specialRules :: specialRules}" />
     <div th:insert="~{alphas :: alphas}" />
     <div th:insert="~{specialists :: specialists}" />
+    -->
     <div th:insert="~{soldiers :: soldiers}" />
 
     <div th:insert="~{footer :: copy}" />

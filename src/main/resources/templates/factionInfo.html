@@ -5,9 +5,9 @@
   <body>
   
     <div th:fragment="factionInfo">
-      <p th:text="${faction.name}"/>
+      <div class="faction_title" th:text="${faction.name}"/>
 
-      <div th:text=${faction.text} />
+      <div class="faction_text" th:text=${faction.text} />
     </div>
   
   </body>

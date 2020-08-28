@@ -9,9 +9,8 @@
       <tr class="troop_info_tr hide_border">
         <th class="troop_info_name_header hide_border" th:text="|Specialists|" />
         <th class="troop_info_selector hide_border">
-          <select th:name="id">
-            <option th:each="specialist, iStat: ${specialists}" th:value="${specialist.id}"
-              th:text="${specialist.name}" />
+          <select th:name="specialist_id">
+            <option th:each="spec, iStat: ${specialists}" th:value="${spec.id}" th:text="${spec.name}" />
           </select>
           <button th:text="Add" th:action="none" />
         </th>
@@ -22,7 +21,7 @@
         <th class="hide_border" th:text="UC" />
       </tr>
       <tr th:each="troop, iStat: ${specialists}">
-        <td><input class="name_input" th:type="text" th:value="| |" th:name="b" /></td>
+        <td><input class="name_input" th:type="text" th:value="| |" th:name="specialist_name" /></td>
         <td th:text="${troop.name}" />
         <td th:text="${troop.move}" />
         <td th:text="${troop.initiative}" />

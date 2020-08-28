@@ -9,7 +9,7 @@
       <tr class="troop_info_tr hide_border">
         <th class="troop_info_name_header hide_border" th:text="|Alphas|" />
         <th class="troop_info_selector hide_border">
-          <select th:name="id">
+          <select th:name="alpha_id">
             <option th:each="alpha, iStat: ${alphas}" th:value="${alpha.id}" th:text="${alpha.name}" />
           </select>
           <button th:text="Add" th:action="none" />
@@ -21,13 +21,14 @@
         <th class="hide_border" th:text="UC" />
       </tr>
       <tr th:each="troop, iStat: ${alphas}">
-        <td />
+        <td><input class="name_input" th:type="text" th:value="| |" th:name="b" /></td>
         <td th:text="${troop.name}" />
         <td th:text="${troop.move}" />
         <td th:text="${troop.initiative}" />
         <td th:text="${troop.health}" />
         <td th:text="${troop.armor}" />
         <td th:text="${troop.cost}" />
+        <td th:text="|X|" />
       </tr>
     </table>
   </div>

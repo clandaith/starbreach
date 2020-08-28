@@ -5,10 +5,10 @@
 <body>
 
   <div th:fragment="specialRules">
-    <table>
-      <tr th:each="specialRule : ${faction.factionSpecialRules}">
-        <td th:text="${specialRule.name}" />
-        <td th:text="${specialRule.text}" />
+    <table class="special_rules_table">
+      <tr class="special_rules_row" th:each="specialRule : ${faction.factionSpecialRules}">
+        <td class="special_rules_td" th:text="${specialRule.name}" />
+        <td class="special_rules_td" th:text="${specialRule.text}" />
       </tr>
     </table>
   </div>
