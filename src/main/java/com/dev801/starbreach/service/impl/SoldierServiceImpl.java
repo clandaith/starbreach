@@ -3,7 +3,6 @@ package com.dev801.starbreach.service.impl;
 import java.util.List;
 
 import com.dev801.starbreach.entities.Soldier;
-import com.dev801.starbreach.repositories.FactionRepository;
 import com.dev801.starbreach.repositories.SoldierRepository;
 import com.dev801.starbreach.service.SoldierService;
 

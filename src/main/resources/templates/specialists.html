@@ -6,19 +6,15 @@
 
   <div th:fragment="specialists">
     <table class="troop_info">
-      <tr class="troop_info_tr">
-        <th class="troop_info_name_header" th:text="|Specialists|" />
-        <th class="troop_info_selector">
+      <tr class="troop_info_tr hide_border">
+        <th class="troop_info_name_header hide_border" th:text="|Specialists|" />
+        <th class="troop_info_selector hide_border">
           <select th:name="id">
             <option th:each="specialist, iStat: ${specialists}" th:value="${specialist.id}"
               th:text="${specialist.name}" />
           </select>
           <button th:text="Add" th:action="none" />
         </th>
-      </tr>
-      <tr class="hide_border">
-        <th class="hide_border" th:text="| |" />
-        <th class="hide_border" th:text="| |" />
         <th class="hide_border" th:text="M" />
         <th class="hide_border" th:text="I" />
         <th class="hide_border" th:text="H" />
