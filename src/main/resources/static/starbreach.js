@@ -12,6 +12,11 @@ $(document).ready(function () {
     });
 });
 
+$(document).on('click', 'i.deletebtn', function () {
+    $(this).closest('tr').remove();
+    return false;
+});
+
 function getSoldier(soldierId) {
     return soldierJSON.filter(soldier => soldier.id == soldierId)
         .reduce((x, soldier) => soldier, 0);
@@ -30,7 +35,7 @@ function loadSoldierRow(soldierId) {
     newRowContent += "  <td>" + soldier.health + "</td>";
     newRowContent += "  <td>" + soldier.armor + "</td>";
     newRowContent += "  <td>" + soldier.cost + "</td>";
-    newRowContent += "  <td><i class=\"fas fa-backspace\" onclick=\"deleteSoldierRow(" + rowId + ")\"></i></td>";
+    newRowContent += "  <td><i class=\"fas fa-backspace deletebtn\"></i></td>";
     newRowContent += "</tr>";
 
     $("#soldier_table tbody").append(newRowContent);
