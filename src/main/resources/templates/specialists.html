@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+  <div th:fragment="specialists">
+    <table class="troop_info">
+      <tr class="troop_info_tr hide_border">
+        <th class="troop_info_name_header hide_border" th:text="|Specialists|" />
+        <th class="troop_info_selector hide_border">
+          <select th:name="specialist_id">
+            <option th:each="spec, iStat: ${specialists}" th:value="${spec.id}" th:text="${spec.name}" />
+          </select>
+          <button th:text="Add" th:action="none" />
+        </th>
+        <th class="hide_border" th:text="M" />
+        <th class="hide_border" th:text="I" />
+        <th class="hide_border" th:text="H" />
+        <th class="hide_border" th:text="A" />
+        <th class="hide_border" th:text="UC" />
+      </tr>
+      <tr th:each="troop, iStat: ${specialists}">
+        <td><input class="name_input" th:type="text" th:value="| |" th:name="specialist_name" /></td>
+        <td th:text="${troop.name}" />
+        <td th:text="${troop.move}" />
+        <td th:text="${troop.initiative}" />
+        <td th:text="${troop.health}" />
+        <td th:text="${troop.armor}" />
+        <td th:text="${troop.cost}" />
+        <td th:text="|X|" />
+      </tr>
+    </table>
+  </div>
+
+</body>
+
+</html>

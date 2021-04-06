@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+  <div th:fragment="specialRules">
+    <table class="special_rules_table">
+      <tr class="special_rules_row" th:each="specialRule : ${faction.factionSpecialRules}">
+        <td class="special_rules_td" th:text="${specialRule.name}" />
+        <td class="special_rules_td" th:text="${specialRule.text}" />
+      </tr>
+    </table>
+  </div>
+
+</body>
+
+</html>

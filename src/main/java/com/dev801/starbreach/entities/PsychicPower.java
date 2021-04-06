@@ -1,5 +1,7 @@
 package com.dev801.starbreach.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,7 +12,9 @@ import javax.persistence.ManyToOne;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity(name = "psychic_powers")
-public class PsychicPower {
+public class PsychicPower implements Serializable {
+	private static final long serialVersionUID = 3744220877433615784L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;

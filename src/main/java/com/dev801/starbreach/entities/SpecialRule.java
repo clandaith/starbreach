@@ -1,5 +1,6 @@
 package com.dev801.starbreach.entities;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -10,8 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity(name = "special_rules")
-public class SpecialRule {
-
+public class SpecialRule implements Serializable {
+	private static final long serialVersionUID = 4431629505601448295L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;

@@ -1,5 +1,6 @@
 package com.dev801.starbreach.entities;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -13,7 +14,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity(name = "factions")
-public class Faction {
+public class Faction implements Serializable {
+	private static final long serialVersionUID = -2371015188124997179L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,7 +35,6 @@ public class Faction {
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "psychic_school_factions", joinColumns = @JoinColumn(name = "psychic_school_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "faction_id", referencedColumnName = "id"))
 	private List<PsychicSchool> psychicSchools;
-
 
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "weapons_factions", joinColumns = @JoinColumn(name = "faction_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "weapon_id", referencedColumnName = "id"))

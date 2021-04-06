@@ -1,5 +1,7 @@
 package com.dev801.starbreach.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,7 +12,8 @@ import javax.persistence.ManyToOne;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity(name = "faction_special_rules")
-public class FactionSpecialRule {
+public class FactionSpecialRule implements Serializable {
+	private static final long serialVersionUID = 3783718424918468157L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

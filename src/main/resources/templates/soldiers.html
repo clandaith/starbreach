@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+  <div th:fragment="soldiers">
+    <table class="troop_info" id="soldier_table">
+      <thead id="soldier_table_head">
+        <tr class="troop_info_tr hide_border">
+          <th class="troop_info_name_header hide_border" th:text="'Soldiers'" />
+          <th class="troop_info_selector hide_border">
+            <select class="troop_selector" th:id="soldier_select">
+              <option th:each="soldier, iStat: ${soldiers}" th:value="${soldier.id}" th:text="${soldier.name}" />
+            </select>
+            <button class="troop_selector_button" th:text="Add" th:id="soldier_add_button" />
+          </th>
+          <th class="hide_border" th:text="M" />
+          <th class="hide_border" th:text="I" />
+          <th class="hide_border" th:text="H" />
+          <th class="hide_border" th:text="A" />
+          <th class="hide_border" th:text="UC" />
+        </tr>
+      </thead>
+      <tbody id="soldier_table_body">
+      </tbody>
+    </table>
+  </div>
+
+</body>
+
+</html>
+
+
+<!--
+        <tr th:each="troop, iStat: ${soldiers}">
+        <td><input class="name_input" th:type="text" th:value="| |" th:name="b" /></td>
+        <td th:text="${troop.name}" />
+        <td th:text="${troop.move}" />
+        <td th:text="${troop.initiative}" />
+        <td th:text="${troop.health}" />
+        <td th:text="${troop.armor}" />
+        <td th:text="${troop.cost}" />
+        <td th:text="|X|" />
+      </tr>
+-->
